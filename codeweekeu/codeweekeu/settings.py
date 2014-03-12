@@ -48,12 +48,11 @@ MANAGERS = ADMINS
 ########## DATABASE CONFIGURATION
 DATABASES = {
 	'default': {
-		'ENGINE': 'django.db.backends.sqlite3',
-		'NAME': normpath(join(DJANGO_ROOT, 'db', 'default.db')),
-		'USER': '',
-		'PASSWORD': '',
-		'HOST': '',
-		'PORT': '',
+		'ENGINE': 'django.db.backends.postgresql_psycopg2',
+		'NAME': 'CodeEU',
+		'USER': 'codeeu',
+		'PASSWORD': 'CodeEU',
+		'HOST': 'localhost'
 	}
 }
 ########## END DATABASE CONFIGURATION
