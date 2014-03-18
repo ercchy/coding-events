@@ -49,6 +49,8 @@ def index(request, country_code=None):
 
 	try:
 		lan_lon = get_lat_lon_from_user_ip(user_ip)
+		if not lan_lon:
+			lan_lon = (46.0608144, 14.497165600000017)
 	except GeoIPException:
 		lan_lon = (46.0608144, 14.497165600000017)
 
