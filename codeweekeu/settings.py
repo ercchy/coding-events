@@ -155,6 +155,7 @@ TEMPLATE_CONTEXT_PROCESSORS = (
 	'django.contrib.messages.context_processors.messages',
 	'django.core.context_processors.request',
 	'django.core.context_processors.media',
+	'django.core.context_processors.request',
 	'django.core.context_processors.static',
 	'social.apps.django_app.context_processors.backends',
 	'social.apps.django_app.context_processors.login_redirect'
@@ -240,9 +241,9 @@ AUTHENTICATION_BACKENDS = (
 AUTH_PROFILE_MODULE = 'api.UserProfile'
 
 LOGIN_URL = '/login/'
-LOGIN_REDIRECT_URL = '/'
+LOGIN_REDIRECT_URL = '/login/'
 LOGIN_ERROR_URL = '/login-error/'
-SOCIAL_AUTH_NEW_USER_REDIRECT_URL = '/accounts/profile/'
+SOCIAL_AUTH_NEW_USER_REDIRECT_URL = '/'
 
 SOCIAL_AUTH_ENABLED_BACKENDS = ('github', 'twitter', 'facebook', 'google')
 SOCIAL_AUTH_DEFAULT_USERNAME = 'new_social_auth_user'
