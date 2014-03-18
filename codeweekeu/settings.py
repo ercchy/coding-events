@@ -34,7 +34,7 @@ sys.path.append(normpath(join(DJANGO_ROOT, 'web')))
 
 ########## DEBUG CONFIGURATION
 # Disable debugging by default.
-DEBUG = False
+DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 
 ########## END DEBUG CONFIGURATION
