@@ -7,6 +7,8 @@ from django.template.defaultfilters import slugify
 from taggit.managers import TaggableManager
 from geoposition.fields import GeopositionField
 from django_countries.fields import CountryField
+import os
+from django.utils.timezone import now
 
 class EventAudience(models.Model):
 	name = models.CharField(max_length=255) 
@@ -104,5 +106,10 @@ class Event(models.Model):
 		except AttributeError:
 			pass
 
-
+	def upload_image_to_S3(instance, filename):
+		filename_base, filename_ext = os.path.splitext(filename)
+		return 'uploads/%s%s' % (
+			now().strftime("%Y%m%d%H%M%S"),
+			filename_ext.lower(),
+		)
 

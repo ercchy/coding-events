@@ -557,4 +557,18 @@ SOCIAL_AUTH_FACEBOOK_KEY = os.environ['FACEBOOK_KEY']
 SOCIAL_AUTH_FACEBOOK_SECRET = os.environ['FACEBOOK_SECRET']
 SOCIAL_AUTH_TWITTER_KEY = os.environ['TWITTER_KEY']
 SOCIAL_AUTH_TWITTER_SECRET = os.environ['TWITTER_SECRET']
+
+# S3 Storage settings
+DEFAULT_FILE_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
+# use http instead of https
+AWS_S3_SECURE_URLS = False
+# don't add complex authentication-related query parameters for requests
+AWS_QUERYSTRING_AUTH = False
+# Read secret data for social logins
+AWS_S3_ACCESS_KEY_ID = os.environ['AWS_S3_KEY']
+AWS_S3_SECRET_ACCESS_KEY = os.environ['AWS_S3_SECRET']
+AWS_STORAGE_BUCKET_NAME = os.environ['AWS_BUCKET']
+
+# URL that handles the media served from MEDIA_ROOT.
+MEDIA_URL = 'http://s3.amazonaws.com/' + AWS_STORAGE_BUCKET_NAME + '/'
 ########## END HEROKU SETTINGS

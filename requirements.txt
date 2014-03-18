@@ -27,3 +27,4 @@ gunicorn==18.0
 psycopg2==2.5.2
 pystache==0.5.3
 static==1.0.2
+boto==2.27.0
