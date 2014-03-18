@@ -4,6 +4,9 @@ Django settings for codeweekeu project.
 
 import sys
 from os.path import abspath, basename, dirname, join, normpath
+import dj_database_url
+import os
+
 ########## PATH CONFIGURATION
 # Absolute filesystem path to this Django project directory.
 DJANGO_ROOT = dirname(dirname(abspath(__file__)))
@@ -31,7 +34,7 @@ sys.path.append(normpath(join(DJANGO_ROOT, 'web')))
 
 ########## DEBUG CONFIGURATION
 # Disable debugging by default.
-DEBUG = True
+DEBUG = False
 TEMPLATE_DEBUG = DEBUG
 
 ########## END DEBUG CONFIGURATION
@@ -48,13 +51,7 @@ MANAGERS = ADMINS
 
 ########## DATABASE CONFIGURATION
 DATABASES = {
-	'default': {
-		'ENGINE': 'django.db.backends.postgresql_psycopg2',
-		'NAME': 'CodeEU',
-		'USER': 'codeeu',
-		'PASSWORD': 'CodeEU',
-		'HOST': 'localhost'
-	}
+	'default': dj_database_url.config(),
 }
 ########## END DATABASE CONFIGURATION
 
@@ -116,18 +113,18 @@ MEDIA_URL = '/media/'
 # Absolute path to the directory static files should be collected to. Don't put
 # anything in this directory yourself; store your static files in apps' static/
 # subdirectories and in STATICFILES_DIRS.
-STATIC_ROOT = normpath(join(DJANGO_ROOT, 'staticfiles'))
+# STATIC_ROOT = normpath(join(DJANGO_ROOT, 'staticfiles'))
 
 # URL prefix for static files.
-STATIC_URL = '/static/'
+# STATIC_URL = '/static/'
 
 # URL prefix for admin static files -- CSS, JavaScript and images.
 ADMIN_MEDIA_PREFIX = '/static/admin/'
 
 # Additional locations of static files.
-STATICFILES_DIRS = (
-    normpath(join(DJANGO_ROOT, 'static')),
-)
+# STATICFILES_DIRS = (
+#     normpath(join(DJANGO_ROOT, 'static')),
+# )
 
 # List of finder classes that know how to find static files in various
 # locations.
@@ -537,3 +534,27 @@ try:
 	from settings_local import *
 except ImportError, e:
 	pass
+
+########## BEGIN HEROKU SETTINGS
+# Honor the 'X-Forwarded-Proto' header for request.is_secure()
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+
+# Allow all host headers
+ALLOWED_HOSTS = ['*']
+
+# Static asset configuration
+STATIC_ROOT = 'staticfiles'
+STATIC_URL = '/static/'
+
+STATICFILES_DIRS = (
+	os.path.join(DJANGO_ROOT, 'static'),
+)
+
+# Get secret data for social logins
+SOCIAL_AUTH_GITHUB_KEY = os.environ['GITHUB_KEY']
+SOCIAL_AUTH_GITHUB_SECRET = os.environ['GITHUB_SECRET']
+SOCIAL_AUTH_FACEBOOK_KEY = os.environ['FACEBOOK_KEY']
+SOCIAL_AUTH_FACEBOOK_SECRET = os.environ['FACEBOOK_SECRET']
+SOCIAL_AUTH_TWITTER_KEY = os.environ['TWITTER_KEY']
+SOCIAL_AUTH_TWITTER_SECRET = os.environ['TWITTER_SECRET']
+########## END HEROKU SETTINGS
