@@ -209,6 +209,8 @@ INSTALLED_APPS = (
     'geoposition',
     # a compressor for static files
     'compressor',
+    # endless pagination
+    'endless_pagination',
 
     # defined apps
     'web',
@@ -254,7 +256,6 @@ SOCIAL_AUTH_FACEBOOK_SECRET = ''
 SOCIAL_AUTH_TWITTER_KEY = ''
 SOCIAL_AUTH_TWITTER_SECRET = ''
 ########## END ATHENTICATION CONFIGURATION
-
 
 ########## DJANGO-COUNTRIES CONFIGURATION
 # Try to exclude all the countries not in EU

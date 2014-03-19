@@ -29,3 +29,5 @@ pystache==0.5.3
 static==1.0.2
 boto==2.27.0
 django-storages==1.1.8
+
+django-endless-pagination==2.0
