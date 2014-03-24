@@ -7,8 +7,7 @@ from django.template.defaultfilters import slugify
 from taggit.managers import TaggableManager
 from geoposition.fields import GeopositionField
 from django_countries.fields import CountryField
-import os
-from django.utils.timezone import now
+from django.conf import settings
 
 class EventAudience(models.Model):
 	name = models.CharField(max_length=255) 
@@ -17,7 +16,7 @@ class EventAudience(models.Model):
 		return self.name
 
 	class Meta:
-		app_label='api'
+		app_label = 'api'
 
 
 class EventTheme(models.Model):
@@ -27,7 +26,7 @@ class EventTheme(models.Model):
 		return self.name
 
 	class Meta:
-		app_label='api'
+		app_label = 'api'
 
 
 class Event(models.Model):
@@ -49,14 +48,13 @@ class Event(models.Model):
 	end_date = models.DateTimeField()
 	event_url = models.URLField(blank=True)
 	contact_person = models.EmailField(blank=True)
-	picture = models.ImageField(upload_to='event_picture', blank=True)
+	picture = models.ImageField(upload_to=settings.MEDIA_UPLOAD_FOLDER, blank=True)
 	pub_date = models.DateTimeField(default=datetime.datetime.now())
 	audience = models.ManyToManyField(EventAudience, related_name='event_audience')
 	theme = models.ManyToManyField(EventTheme, related_name='event_theme')
 	tags = TaggableManager(blank=True)
 	created = models.DateTimeField(auto_now_add=True)
 	updated = models.DateTimeField(auto_now_add=True)
-
 
 	def __unicode__(self):
 		return self.title
@@ -91,10 +89,10 @@ class Event(models.Model):
 
 		super(Event, self).__init__(*args, **kwargs)
 
-	def save(self,*args,**kwargs):
+	def save(self, *args, **kwargs):
 		if not self.id:
 			self.slug = slugify(self.title)
-		super(Event,self).save(*args,**kwargs)
+		super(Event, self).save(*args, **kwargs)
 
 		try:
 			for tag in self.tag:
@@ -106,10 +104,12 @@ class Event(models.Model):
 		except AttributeError:
 			pass
 
-	def upload_image_to_S3(instance, filename):
-		filename_base, filename_ext = os.path.splitext(filename)
-		return 'uploads/%s%s' % (
-			now().strftime("%Y%m%d%H%M%S"),
-			filename_ext.lower(),
-		)
+	def get_tags(self):
+		return ', '.join([e.name for e in self.tags.all()])
+
+	def get_audience_array(self):
+		return [audience.pk for audience in self.audience.all()]
+
+	def get_theme_array(self):
+		return [theme.pk for theme in self.theme.all()]
 
