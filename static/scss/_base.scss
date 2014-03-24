@@ -134,8 +134,8 @@ LANDING PAGE MAP STYLES
 .add-event-wrapper {
 	position: absolute;
 	bottom: 20px;
-	width: 100%;
-	text-align: center;
+	margin-left: -180px;
+	left: 50%;
 }
 
 /*********************
@@ -188,6 +188,25 @@ INDEX PAGE STYLES
 
 .country-link {
 	margin: 1em 0;
+	height: 128px;
+	width: 128px;
+	float: left;
+	margin-right: 10px;
+	margin-bottom: 10px;
+	text-align: center;
+	border: 1px solid $silver;
+	padding-top: 25px;
+	font-weight: bold;
+	@include transition(all 0.5s linear);
+
+	&:hover {
+		border-color: $brand-primary;
+	}
+
+	img {
+		width: 64px;
+		margin-bottom: 10px;
+	}
 }
 
 /*********************
@@ -213,6 +232,19 @@ ADD/EDIT EVENT PAGE STYLES
 	}
 }
 
+/*********************
+VIEW EVENT PAGE STYLES
+*********************/
+
+.share-event-wrapper{
+	margin: 15px 0;
+	.fb-share-button{
+		margin-right: 15px;
+	}
+	#twitter-widget-0{
+		width: 90px !important;
+	}
+}
 /*********************
 FOOTER STYLES
 *********************/
@@ -258,7 +290,7 @@ footer {
 		&.codecatz-logo {
 			width: 100px;
 			display: block;
-			padding: 10px 10px;
+			padding: 10px 0;
 		}
 	}
 }
@@ -290,7 +322,7 @@ VIEW EVENT STYLES
 .event-jumbotron {
 	img {
 		width: 100%;
-		margin: 20px 0;
+		margin-bottom: 20px;
 	}
 
 }
@@ -361,4 +393,24 @@ VIEW EVENT STYLES
 
 }
 
+.event-time-place {
+	margin-top: 20px;
+}
+
+/*********************
+SEARCH EVENTS STYLES
+*********************/
+.search-page {
+	margin: 60px 0;
+}
+.search-checkbox {
+	ul {
+		list-style-type: none;
+		padding-left: 0;
+
+		label {
+			font-weight: normal;
+		}
+	}
+}
 

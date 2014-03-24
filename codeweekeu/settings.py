@@ -106,6 +106,7 @@ MEDIA_ROOT = normpath(join(DJANGO_ROOT, 'media'))
 
 # URL that handles the media served from MEDIA_ROOT.
 MEDIA_URL = '/media/'
+MEDIA_UPLOAD_FOLDER = 'event_picture'
 ########## END MEDIA CONFIGURATION
 
 
@@ -300,7 +301,6 @@ COUNTRIES_OVERRIDE = {
 	u'CD': None,
 	u'CF': None,
 	u'CG': None,
-	u'CH': None,
 	u'CI': None,
 	u'CK': None,
 	u'CL': None,
@@ -353,7 +353,6 @@ COUNTRIES_OVERRIDE = {
 	u'IO': None,
 	u'IQ': None,
 	u'IR': None,
-	u'IS': None,
 	u'JE': None,
 	u'JM': None,
 	u'JO': None,
@@ -405,7 +404,6 @@ COUNTRIES_OVERRIDE = {
 	u'NF': None,
 	u'NG': None,
 	u'NI': None,
-	u'NO': None,
 	u'NP': None,
 	u'NR': None,
 	u'NU': None,
