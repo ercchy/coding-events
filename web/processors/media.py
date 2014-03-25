@@ -36,6 +36,7 @@ def process_image(image_file):
 		#msg = 'Failed while processing image (image_file=%s, image_name=%s, image_new_url=%s).' \
 		#      % (image_file, image_name, new_image_url, )
 		msg = "I/O error({0}): {1}".format(e.errno, e.strerror)
+		raise UploadImageError(msg)
 
 	return new_image_url
 
