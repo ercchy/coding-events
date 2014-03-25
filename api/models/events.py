@@ -9,6 +9,17 @@ from geoposition.fields import GeopositionField
 from django_countries.fields import CountryField
 from django.conf import settings
 
+
+def upload_image_to(instance, filename):
+		import os
+		from django.utils.timezone import now
+		filename_base, filename_ext = os.path.splitext(filename)
+		return 'profiles/%s%s' % (
+			now().strftime("%Y%m%d%H%M%S"),
+			filename_ext.lower(),
+		)
+
+
 class EventAudience(models.Model):
 	name = models.CharField(max_length=255) 
 
@@ -48,7 +59,7 @@ class Event(models.Model):
 	end_date = models.DateTimeField()
 	event_url = models.URLField(blank=True)
 	contact_person = models.EmailField(blank=True)
-	picture = models.ImageField(upload_to=settings.MEDIA_UPLOAD_FOLDER, blank=True)
+	picture = models.ImageField(upload_to=upload_image_to, blank=True)
 	pub_date = models.DateTimeField(default=datetime.datetime.now())
 	audience = models.ManyToManyField(EventAudience, related_name='event_audience')
 	theme = models.ManyToManyField(EventTheme, related_name='event_theme')
@@ -112,4 +123,5 @@ class Event(models.Model):
 
 	def get_theme_array(self):
 		return [theme.pk for theme in self.theme.all()]
+
 
