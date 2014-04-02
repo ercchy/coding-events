@@ -23,7 +23,7 @@ def process_image(image_file):
 	image_basename, image_format = os.path.splitext(image_name)
 	new_image_name = "%s_%s.png" % (slugify(image_basename), uuid.uuid4())
 
-	new_image_url = "%s%s%s" % (settings.MEDIA_ROOT, settings.MEDIA_UPLOAD_FOLDER, new_image_name)
+	new_image_url = "%s%s" % (settings.MEDIA_ROOT, new_image_name)
 
 	try:
 		im = PilImage.open(image_file)
