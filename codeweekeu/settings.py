@@ -106,7 +106,7 @@ MEDIA_ROOT = normpath(join(DJANGO_ROOT, 'media'))
 
 # URL that handles the media served from MEDIA_ROOT.
 MEDIA_URL = '/media/'
-MEDIA_UPLOAD_FOLDER = 'event_picture'
+MEDIA_UPLOAD_FOLDER = 'event_picture/'
 ########## END MEDIA CONFIGURATION
 
 
@@ -569,5 +569,6 @@ AWS_S3_SECRET_ACCESS_KEY = os.environ['AWS_S3_SECRET']
 AWS_STORAGE_BUCKET_NAME = os.environ['AWS_BUCKET']
 
 # URL that handles the media served from MEDIA_ROOT.
-MEDIA_URL = 'http://s3.amazonaws.com/' + AWS_STORAGE_BUCKET_NAME + '/'
+#MEDIA_URL = 'http://s3.amazonaws.com/' + AWS_STORAGE_BUCKET_NAME + '/'
+MEDIA_URL = 'http://codeweekeu.s3.amazonaws.com/%s/' % AWS_STORAGE_BUCKET_NAME
 ########## END HEROKU SETTINGS
