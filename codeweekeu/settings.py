@@ -570,5 +570,5 @@ AWS_STORAGE_BUCKET_NAME = os.environ['AWS_BUCKET']
 
 # URL that handles the media served from MEDIA_ROOT.
 #MEDIA_URL = 'http://s3.amazonaws.com/' + AWS_STORAGE_BUCKET_NAME + '/'
-MEDIA_URL = 'http://codeweekeu.s3.amazonaws.com/%s/' % AWS_STORAGE_BUCKET_NAME
+MEDIA_URL = 'http://%s.s3.amazonaws.com/' % AWS_STORAGE_BUCKET_NAME
 ########## END HEROKU SETTINGS
