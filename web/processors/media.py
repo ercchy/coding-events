@@ -23,14 +23,14 @@ def process_image(image_file):
 	image_basename, image_format = os.path.splitext(image_name)
 	new_image_name = "%s_%s.png" % (slugify(image_basename), uuid.uuid4())
 
-	new_image_url = "%s%s" % (settings.MEDIA_ROOT, new_image_name)
+	new_image_url = "%s" % new_image_name
 
 	try:
 		im = PilImage.open(image_file)
 		if max(im.size) > max(size):
 			im.thumbnail(size, PilImage.ANTIALIAS)
 
-		im.save(new_image_url, "png")
+		#im.save(new_image_url, "png")
 
 	except IOError as e:
 		msg = 'Failed while processing image (image_file=%s, image_name=%s, image_new_url=%s, error_number=%s, error=%s).' \
