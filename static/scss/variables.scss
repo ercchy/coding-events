@@ -17,9 +17,9 @@ $secondary-color:			$light-blue;
 
 
 // Buttons
-$defaultButton:             #cccccc;
+$defaultButton:             $silver;
 $defaultButtonHover:        darken($defaultButton, 10%);
-$primaryButton:             $brand-primary;
+$primaryButton:             $primary-color;
 $primaryButtonHover:        darken($primaryButton, 10%);
 
 //== Scaffolding
