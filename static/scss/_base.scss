@@ -243,12 +243,12 @@ footer {
 		}
 	}
 
-	i{
-		&:not(.fa-inverse){
+	i {
+		&:not(.fa-inverse) {
 			color: $silver;
 		}
 
-		&.fa-inverse{
+		&.fa-inverse {
 			color: $black;
 		}
 	}
@@ -258,7 +258,7 @@ footer {
 		padding-left: 0;
 		padding-right: 30px;
 
-		li{
+		li {
 			line-height: 32px;
 			border-bottom: 1px dotted $silver;
 		}
@@ -299,6 +299,10 @@ footer {
 			display: block;
 			padding: 10px 0;
 		}
+	}
+	.fa-stack {
+		margin-right: 20px;
+		height: 50px;
 	}
 }
 
@@ -427,44 +431,45 @@ ABOUT SITE STYLES
 *********************/
 .team-member {
 	@include make-sm-column(6);
-	.header{
+	.header {
 		background: #B0CC55;
 		padding: 10px;
 		font-size: 25px;
 		text-shadow: 1px 1px #ddd;
 		margin-bottom: 10px;
 	}
-	img{
+	img {
 		float: left;
-        margin-right: 25px;
+		margin-right: 25px;
 	}
-	.description{
+	.description {
 		overflow: hidden;
-        padding: 10px;
+		padding: 10px;
 	}
-	.social-icons{
+	.social-icons {
 		list-style-type: none;
 		padding-left: 0;
-		li{
+		li {
 			float: left;
 			padding: 0;
 		}
 	}
 }
-.supporters{
+
+.supporters {
 	list-style-type: none;
 	padding: 0;
 	margin: 20px 0;
-	li{
+	li {
 		@include make-sm-column(2);
 	}
-	a{
+	a {
 		display: table-cell;
 		height: 100px;
 		text-align: center;
 		vertical-align: bottom;
 	}
-	img{
+	img {
 		max-width: 100%;
 	}
 }
