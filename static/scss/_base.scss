@@ -234,6 +234,7 @@ footer {
 	width: 100%;
 	background-color: $dark-blue;
 	color: $silver;
+	padding-top: 20px;
 
 	a {
 		color: $black;
@@ -242,19 +243,27 @@ footer {
 		}
 	}
 
+	.footer-navigation {
+		list-style-type: none;
+		padding-left: 0;
+		padding-right: 30px;
+
+		li{
+			line-height: 32px;
+			border-bottom: 1px dotted $silver;
+		}
+	}
+
 	.maker-introduction {
 		margin: 20px 0;
 
 	}
 	.fork-github {
-		margin: 20px 0;
-		text-align: center;
+		text-align: justify;
 		a {
 			display: block;
 		}
 		i {
-			margin-top: 10px;
-			font-size: 40px;
 			color: $silver;
 		}
 	}

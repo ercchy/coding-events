@@ -1,7 +1,66 @@
 {% load static %}
 <footer>
 	<div class="container">
-		<div class="copyright col-md-3 pull-right">
+		<div class="col-md-3 first">
+			<nav>
+				<ul class="footer-navigation">
+					<li><a href="{% url 'web.index' %}">Events</a></li>
+					<li class="toggle-topbar menu-icon"><a href="http://codeweek.eu/learn">Resources</a></li>
+					<li class="toggle-topbar menu-icon"><a href="http://codeweek.eu/code">Why coding?</a></li>
+					<li class="toggle-topbar menu-icon"><a href="http://codeweek.eu/about/">About</a></li>
+					<li class="toggle-topbar menu-icon"><a href="http://blog.codeweek.eu/">News</a></li>
+				</ul>
+			</nav>
+		</div>
+		<div class="fork-github col-md-3">
+			<div>
+				Fork us on:
+				<a href="https://github.com/codeeu/coding-events">
+				<span class="fa-stack fa-lg">
+				  <i class="fa fa-square-o fa-stack-2x"></i>
+				  <i class="fa fa-github fa-stack-1x"></i>
+				</span>
+				</a>
+			</div>
+			<div>
+				<div class="clearfix">
+					Follow #codeEU on:
+				</div>
+
+				<div class="clearfix">
+					<a href="https://twitter.com/CodeWeekEU" class="pull-left">
+					<span class="fa-stack fa-lg">
+					  <i class="fa fa-square-o fa-stack-2x"></i>
+					  <i class="fa fa-twitter fa-stack-1x"></i>
+					</span>
+					</a>
+					<a href="https://www.facebook.com/codeEU" class="pull-left">
+					<span class="fa-stack fa-lg">
+					  <i class="fa fa-square-o fa-stack-2x"></i>
+					  <i class="fa fa-facebook fa-stack-1x"></i>
+					</span>
+					</a>
+					<a href="https://plus.google.com/100389357124183878121" class="pull-left">
+					<span class="fa-stack fa-lg">
+					  <i class="fa fa-square-o fa-stack-2x"></i>
+					  <i class="fa fa-google-plus fa-stack-1x"></i>
+					</span>
+					</a>
+				</div>
+
+			</div>
+			<div>
+				Coded by:
+				<a href="{% url 'web.about' %}">
+					<img src="{% static 'img/codecatz-logo.png' %}" alt="CodeCatz" class="codecatz-logo" />
+				</a>
+			</div>
+		</div>
+
+
+		<div class="copyright col-md-3">
+
+
 			<a href="https://creativecommons.org/licenses/by/4.0/" target="_blank">
 				<img src="{% static 'img/cc-icons.png' %}"
 				     alt="CC Icon" class="cc-icons">
@@ -14,19 +73,9 @@
 					Creative Commons Attribution 4.0 International license.</a>
 			</p>
 		</div>
-		<div class="maker-introduction col-md-2 first">
-			Coded by:
-			<a href="{% url 'web.about' %}">
-				<img src="{% static 'img/codecatz-logo.png' %}" alt="CodeCatz" class="codecatz-logo" />
-			</a>
-		</div>
-		<div class="fork-github col-md-2">
-			Fork the website on: <div><a href="https://github.com/codeeu/coding-events"><i class="fa fa-github"></i></a></div>
-		</div>
-		<div class="social-links col-md-3">
-			Follow #codeEU on: <div><a href="https://twitter.com/CodeWeekEU"><i class="fa fa-twitter"></i></a>
-			<a href="https://www.facebook.com/codeEU"><i class="fa fa-facebook"></i></a>
-			<a href="https://plus.google.com/100389357124183878121"><i class="fa fa-google-plus"></i></a></div>
+
+		<div class="social-links col-md-3 maker-introduction ">
+
 		</div>
 
 	</div>
