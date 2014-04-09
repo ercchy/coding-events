@@ -243,6 +243,16 @@ footer {
 		}
 	}
 
+	i{
+		&:not(.fa-inverse){
+			color: $silver;
+		}
+
+		&.fa-inverse{
+			color: $black;
+		}
+	}
+
 	.footer-navigation {
 		list-style-type: none;
 		padding-left: 0;
@@ -285,7 +295,7 @@ footer {
 			margin: 20px 0;
 		}
 		&.codecatz-logo {
-			width: 70px;
+			width: 38px;
 			display: block;
 			padding: 10px 0;
 		}
