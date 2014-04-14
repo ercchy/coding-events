@@ -233,9 +233,9 @@ footer {
 	padding-top: 20px;
 
 	a {
-		color: $black;
+		color: $white;
 		&:hover {
-			color: $white;
+			color: $silver;
 		}
 	}
 
@@ -293,11 +293,13 @@ footer {
 		&.codecatz-logo {
 			width: 38px;
 			display: block;
-			padding: 10px 0;
 		}
 	}
+	.icon-title{
+		line-height: 40px;
+	}
 	.fa-stack {
-		margin-right: 20px;
+		margin-right: 0;
 		height: 50px;
 	}
 }
