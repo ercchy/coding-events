@@ -149,6 +149,11 @@
 		.fa-times {
 			color: $silver;
 		}
+		&.active{
+			.fa {
+				color: $primary-color;
+			}
+		}
 	}
 
 }

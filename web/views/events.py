@@ -241,10 +241,8 @@ def search_events(request):
 		user_ip = get_client_ip(forwarded=request.META.get('HTTP_X_FORWARDED_FOR'),
 		                        remote=request.META.get('REMOTE_ADDR'))
 		country_code = request.GET.get('country_code', None)
-		if country_code:
-			country = get_country(country_code, user_ip)
-			print country
-			events = get_approved_events(country_code=country)
+		country = get_country(country_code, user_ip)
+		events = get_approved_events(country_code=country)
 
 		if request.method == 'POST':
 			form = SearchEventForm(request.POST)
@@ -265,7 +263,8 @@ def search_events(request):
 			'pages/search_events.html', {
 				'events': events,
 				'form': form,
-			    'country': country['country_code']
+			    'country': country['country_code'],
+			    'search_active': True,
 			}, context_instance=RequestContext(request))
 
 

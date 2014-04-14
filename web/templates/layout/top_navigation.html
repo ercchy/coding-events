@@ -84,13 +84,12 @@
 					Add Event
 				</a>
 			</li>
-			{% if search_button %}
-				<li class="pull-right">
-					<a href="#" class="search-btn">
-						<i class="fa fa-search fa-2x fa-inverse"></i>
-					</a>
-				</li>
-			{% endif %}
+			<li class="pull-right">
+				<a href="{% if search_button %}#{% else %}{% url 'web.search_events' %}{% endif %}"
+				   class="search-btn {% if search_active %}active{% endif %}">
+					<i class="fa fa-search fa-2x fa-inverse"></i>
+				</a>
+			</li>
 		</ul>
 	</div>
 </nav>
