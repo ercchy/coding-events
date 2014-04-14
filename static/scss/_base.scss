@@ -97,14 +97,9 @@ LANDING PAGE MAP STYLES
 	z-index: 0;
 }
 
-.search-event-form {
-	position: absolute;
-	top: 20px;
-	left: 20px;
-
-	input {
-		width: 400px;
-	}
+#search-events-link {
+	text-align: center;
+	margin-top: 20px;
 }
 
 .add-event-wrapper {
@@ -161,7 +156,10 @@ INDEX PAGE STYLES
 	padding-left: 0.5em;
 	padding-right: 0.5em;
 }
-
+#showcountries{
+	background-color: $whitesmoke;
+	padding-bottom: 25px;
+}
 .country-link {
 	margin: 1em 0;
 	height: 80px;
@@ -170,18 +168,16 @@ INDEX PAGE STYLES
 	margin-right: 10px;
 	margin-bottom: 10px;
 	text-align: center;
-	border: 1px solid $silver;
 	padding-top: 5px;
 	font-weight: bold;
-	@include transition(all 0.5s linear);
+	cursor: pointer;
+	@include filter(opacity, 0.6);
+	@include transition(all 0.3s linear);
 
 	&:hover {
 		border-color: $brand-primary;
-	}
-
-	img {
-		width: 34px;
-		margin-bottom: 10px;
+		text-decoration: underline;
+		@include filter(opacity, 1);
 	}
 
 	.icon-flag {
@@ -193,7 +189,7 @@ INDEX PAGE STYLES
 ADD/EDIT EVENT PAGE STYLES
 *********************/
 .how-to {
-	margin-top: 25px;
+	margin: 25px 0;
 }
 
 .event-footnote {
